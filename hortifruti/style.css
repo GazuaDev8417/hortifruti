@@ -42,7 +42,7 @@ section nav .logo img{
 
 section nav ul{
     list-style: none;
-    margin-left: 400px;
+    margin-left: 600px;
 }
 
 section nav ul li{
@@ -335,4 +335,123 @@ section p{
 
 .av_btn:hover{
     background: #000;
+}
+
+/* ========================================= ORDERS ============================================ */
+/* .order{
+    width: 100%;
+    height: 100vh;
+    padding: 70px 0;
+}
+
+.order h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 45pxl;
+}
+
+.order h1 span{
+    margin-left: 15px;
+    color: #68d66f;
+}
+
+.order_main{
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.order_image img{
+    width: 600px;
+} */
+
+
+/* ===================== CONTACT ============================== */
+.contact h1{
+    text-align: center;
+    font-size: 45px;
+    margin-top: 15vh;
+}
+
+.contact h1 span{
+    margin-left: 15px;
+    color: #68d66f;
+}
+
+.contact form{
+    max-width: 50rem;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+.contact form .inputBox{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact form .inputBox input{
+    height: 40px;
+}
+
+.contact form .inputBox input,
+.contact form textarea{
+    width: 100%;
+    background: #fff;
+    border-radius: .5rem;
+    border: 1px solid black;
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #fff;
+    text-transform: none;
+    padding: 5px 10px;
+    background: rgb(197, 187, 187);
+    outline: none;
+}
+
+.contact form .inputBox input::placeholder,
+.contact form textarea::placeholder{
+    color: #fff;
+}
+
+.contact form .inputBox input:focus,
+.contact form textarea:focus{
+    background: #68d66f;
+}
+
+.contact form .inputBox input{
+    width: 49%;
+}
+
+.contact form textarea{
+    resize: none;
+}
+
+.contact form .btn-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+.contact form .btn-container .btn{
+    background: #68d66f;
+    border-radius: 30px 130px 30px;
+    padding: 10px 50px;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    transition: .3s;
+}
+
+.contact form .btn-container .btn:hover{
+    background: #000;
+}
+
+.contact form .btn-container .btn:active{
+    transform: scale(.9);
 }
