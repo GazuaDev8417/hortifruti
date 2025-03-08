@@ -43,3 +43,12 @@ document.getElementById('form').addEventListener('submit', (e)=>{
     
     alert(`${qnt.value} ${product.value} para o endereço ${address.value} solicitado pelo cliente ${client.value}`)
 })
+
+
+const menuIcon = document.getElementById('menu-icon')
+const navUl = document.querySelector('section nav ul')
+
+menuIcon.addEventListener('click', ()=>{
+    menuIcon.classList.toggle('fa-xmark')
+    navUl.classList.toggle('active')
+})
