@@ -18,7 +18,7 @@ html{
 
 section{
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 #menu-icon{
@@ -29,11 +29,12 @@ section{
 
 section nav{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin: 0 20px;
     align-items: center;
     position: fixed;
-    left: 0;
-    right: 0;
+    width: 100%;
+    padding: 0 20px;
     background: #f5f5f5;
     box-shadow: 0 0 10px rgba(0, 0, 0, .5);
     z-index: 1000;
@@ -83,16 +84,13 @@ section nav ul li a:hover::after{
 
 section .main{
     display: flex;
-    align-items: center;
     justify-content: space-around;
-    position: relative;
-    top: 100px;
+    padding-top: 25vh;
 }
 
 section .main .men_text h1{
-    position: relative;
     font-size: 40px;
-    bottom: 136px;
+    /* margin-top: -40vh; */
 }
 
 .men_text h1 span{
@@ -102,12 +100,11 @@ section .main .men_text h1{
 
 .men_text h2{
     background: #68d66f;
+    margin: 25px;
     padding: 3px;
     width: 269px;
     text-align: center;
     font-size: 17px;
-    position: relative;
-    bottom: 100px;
     color: #fff;
     cursor: pointer;
     font-weight: normal;
@@ -127,29 +124,23 @@ section .main .men_text h1{
 }
 
 .main_image img{
-    position: relative;
     width: 650px;
-    top: 25px;
     border-radius: 10px;
     border: 2px solid green;
     box-shadow: 2px 2px 4px #68d66f;
 }
 
 section p{
+    margin-top: -40vh;
     width: 40%;
     text-align: center;
-    position: relative;
-    left: 40px;
-    bottom: 100px;
-    line-height: 20px;
+    line-height: 20px;    
+    margin-left: 20px;
 }
 
 .main_btn{
     background: #68d66f;
-    position: relative;
-    top: 20px;
-    left: 45%;
-    bottom: 90px;
+    margin: 20px 0 0 30vw;
     width: 150px;
     cursor: pointer;
     text-align: center;
@@ -204,8 +195,6 @@ section p{
 .about_text h1{
     margin-top: 50px;
     font-size: 45px;
-    position: relative;
-    bottom: 70px;
 }
 
 .about_text h3{
@@ -357,8 +346,7 @@ section p{
     height: 40px;
 }
 
-.order form .inputBox input,
-.order form textarea{
+.order form .inputBox input{
     width: 100%;
     background: #fff;
     border-radius: .5rem;
@@ -372,22 +360,16 @@ section p{
     outline: none;
 }
 
-.order form .inputBox input::placeholder,
-.order form textarea::placeholder{
+.order form .inputBox input::placeholder{
     color: #fff;
 }
 
-.order form .inputBox input:focus,
-.order form textarea:focus{
+.order form .inputBox input:focus{
     background: #68d66f;
 }
 
 .order form .inputBox input{
     width: 49%;
-}
-
-.order form textarea{
-    resize: none;
 }
 
 .order form .btn-container{
@@ -418,93 +400,50 @@ section p{
 
 
 /* ======================================= MEDIA QUERIES ============================= */
-@media(max-width: 1250px){
-    section nav ul{
-        margin-left: -10%;
-    }
-
-    section{
-        margin-bottom: 80vh;
-        margin-left: 10%;
-    }
-
-    section .main{
-        flex-direction: column;
-        top: 50vh;
-    }
-
+@media(max-width: 1145px){
     .home-container{
+        width: 120%;
+        margin-left: 20px;
+    }
+}
+
+@media(max-width: 980px){
+    .home-container{
+        width: 130%;
+        margin-left: 20px;
+    }
+}
+
+@media(max-width: 870px){
+    .home-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 158%;
+    }
+
+    .home-container .main{
+        flex-direction: column;
+    }
+
+    .home-container .desc-container{
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .home-container p{
-        font-weight: bold;
-        margin-top: 10vh;
-        font-size: 1.3rem;
-        color: #fff;
+    .main .men_text{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
-    .main_btn{
-        top: -80px;
-        left: 20%;
-    }
-    
-    .about{
-        margin-left: 8%;
-        /* background-position: center; */
-        width: 180%;
-    }
-}
-
-@media(max-width: 800px){
-    section{
-        margin-left: 35%;
-    }
-
-    #menu-icon{
-        display: block;
-    }
-
-    section nav ul{
-        position: absolute;
-        top: 100%;
-        right: -100%;
+    .main_image img{
         width: 100%;
-        padding: 40px 4% 0;
-        background: lightgray;
-        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
-        transition: .5s;
-        transition-delay: .3s;
-    }
-
-    section nav ul.active{
-        right: 0;
-        transition-delay: 0s;
-    }
-
-    section nav ul li{
-        display: block;
-    }
-
-    section nav ul li a{
-        font-size: 28px;
-        margin: 16px -20px;
     }
 
     section p{
-        width: 80%;
-        margin-left: -10%;
-    }
-}
-
-@media(max-width: 358px){
-    section{
-        margin-left: 125%;
-    }
-
-    section p{
-        width: 100%;
+        margin-top: 5vh;
+        width: 60%;
     }
 }
