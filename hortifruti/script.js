@@ -25,6 +25,7 @@ const validateQuantity = (input)=>{
 
 const client = document.getElementById('client')
 const qnt = document.getElementById('qnt')
+const phone = document.getElementById('phone')
 const products = ['Morango', 'Couve-flor', 'Alface', 'Pimentão', 'Repolho', 'Brocoli', 'Tomate', 'Melancia']
 const product = document.getElementById('product')
 const address = document.getElementById('address')
@@ -32,6 +33,10 @@ const address = document.getElementById('address')
 
 document.getElementById('form').addEventListener('submit', (e)=>{
     e.preventDefault()
+    
+    if(isNaN(qnt.value) || isNaN(phone.value)){
+        alert(`Apenas números nos campos de telefone ou quantidade`)
+    }
 
     const value = product.value.trim().toLowerCase()
 

@@ -478,13 +478,13 @@ section p{
     section nav ul{
         position: absolute;
         width: 100%;
-        padding: 10px;
+        padding: 10px 0 10px 40px;
         top: 100%;
         right: -100%;
         transition: .5s;
         transition-delay: .5s;
         background: #fff;
-        line-height: 40px;
+        line-height: 5rem;
     }
 
     section nav ul li{
@@ -492,7 +492,8 @@ section p{
     }
 
     section nav ul li a{
-        font-size: 25px;
+        font-size: 2.5rem;
+        font-weight: 300;
     }
     
     section nav ul.active{
@@ -500,11 +501,38 @@ section p{
     }
 
     .av_box{
-        /* display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center; */
         grid-template-columns: 1fr 1fr;
+    }
+
+    .av_card{
+        width: 500px;
+        height: 700px;
+    }
+
+    .av_image{
+        width: 470px;
+        height: 470px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .av_image img{
+        width: 400px;
+        box-shadow: 0 0 10px;
+        border-radius: 10px;
+    }
+
+    .av_info h2{
+        font-size: 2rem;
+    }
+
+    .av_info p{
+        font-size: 20px;
+    }
+
+    .av_btn{
+        font-size: 25px;
     }
 }
 
@@ -577,7 +605,7 @@ section p{
         font-size: 5rem;
     }
 
-    .av_card{
+    /* .av_card{
         width: 500px;
         height: 700px;
     }
@@ -606,7 +634,7 @@ section p{
 
     .av_btn{
         font-size: 25px;
-    }
+    } */
 
     .order{
         width: 300%;
