@@ -24,14 +24,15 @@ const validateQuantity = (input)=>{
 
 
 const client = document.getElementById('client')
+const email = document.getElementById('email')
 const qnt = document.getElementById('qnt')
 const phone = document.getElementById('phone')
-const products = ['Morango', 'Couve-flor', 'Alface', 'Pimentão', 'Repolho', 'Brocoli', 'Tomate', 'Melancia']
 const product = document.getElementById('product')
 const address = document.getElementById('address')
+const products = ['Morango', 'Couve-flor', 'Alface', 'Pimentão', 'Repolho', 'Brocoli', 'Tomate', 'Melancia']
 
 
-document.getElementById('form').addEventListener('submit', (e)=>{
+document.getElementById('form').addEventListener('submit', async(e)=>{
     e.preventDefault()
     
     if(isNaN(qnt.value) || isNaN(phone.value)){
@@ -45,8 +46,34 @@ document.getElementById('form').addEventListener('submit', (e)=>{
 
         return
     }
-    
-    alert(`${qnt.value} ${product.value} para o endereço ${address.value} solicitado pelo cliente ${client.value}`)
+
+    const formData = {
+        client: client.value,
+        email: email.value,
+        phone: phone.value,
+        address: address.value,
+        product: product.value,
+        quantity: qnt.value
+    }
+
+    const response = await fetch('http://10.23.1.5:3003/order', {
+        method:'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+
+    if(!response.ok){
+        alert('Erro ao enviar pedido')
+        
+        return
+    }
+
+    const result = await response.text()
+
+    alert(result)
+
 })
 
 
