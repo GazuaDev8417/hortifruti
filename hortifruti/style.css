@@ -322,7 +322,7 @@ section p{
 }
 
 .order form{
-    max-width: 50rem;
+    width: 50rem;
     margin: 1rem auto;
     text-align: center;
 }
@@ -483,7 +483,7 @@ section p{
         right: -100%;
         transition: .5s;
         transition-delay: .5s;
-        background: lightgray;
+        background: #fff;
         line-height: 40px;
     }
 
@@ -611,6 +611,25 @@ section p{
     .order{
         width: 300%;
         margin-left: 40px;
+    }
+
+    .order form{
+        width: 65rem;
+    }
+
+    .order form .inputBox input{
+        height: 80px;
+        font-size: 2rem;
+    }
+
+    .order h1{
+        font-size: 5rem;
+    }
+
+    .order form .btn-container .btn{
+        padding: 20px;
+        width: 200px;
+        font-size: 2rem;
     }
 }
 
