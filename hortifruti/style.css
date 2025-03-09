@@ -500,10 +500,117 @@ section p{
     }
 
     .av_box{
-        display: flex;
+        /* display: flex;
         flex-wrap: wrap;
         align-items: center;
+        justify-content: center; */
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width: 384px){
+    .men_text{
+        width: 200%;
+    }
+
+    section .main .men_text h1{
+        font-size: 5rem;
+    }
+
+    .men_text h1 span{
+        font-size: 5rem;
+    }
+
+    .men_text h2{
+        font-size: 3rem;
+        width: 520px;
+    }
+
+    .men_text h2 span{
+        font-size: 3rem;
+    }
+
+    .main_image img{
+        width: 150%;
+        margin-left: 30px;
+    }
+
+    section p{
+        text-align: left;
+        width: 170%;
+        margin-left: 80%;
+        font-size: 2rem;
+        font-weight: 200;
+        line-height: 40px;
+    }
+
+    .main_btn{
+        margin-right: -180%;
+        width: 400px;
+        font-size: 2.5rem;
+    }
+
+    .main_btn a{
+        text-decoration: none;        
+    }
+
+    .about h1{
+        font-size: 5rem;
+    }
+
+    .about h3{
+        font-size: 3rem;
+    }
+
+    .about p{
+        font-size: 2rem;
+        font-weight: 200;
+        line-height: 40px;
+    }
+
+    .available{
+        width: 300%;
+        margin-left: 40px;
+    }
+
+    .available h1{
+        font-size: 5rem;
+    }
+
+    .av_card{
+        width: 500px;
+        height: 700px;
+    }
+
+    .av_image{
+        width: 470px;
+        height: 470px;
+        display: flex;
+        align-items: center;
         justify-content: center;
+    }
+
+    .av_image img{
+        width: 400px;
+        box-shadow: 0 0 10px;
+        border-radius: 10px;
+    }
+
+    .av_info h2{
+        font-size: 2rem;
+    }
+
+    .av_info p{
+        font-size: 20px;
+    }
+
+    .av_btn{
+        font-size: 25px;
+    }
+
+    .order{
+        width: 300%;
+        margin-left: 40px;
     }
 }
 
