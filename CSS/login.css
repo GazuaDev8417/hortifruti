@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+header i{
+    font-size: 2rem;
+    margin: 20px;
+    transition: .5s;
+    cursor: pointer;
+}
+
+header i:hover{
+    color: #68d66f;
+}
+
+body{
+    background: #f5f5f5;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+main{
+    margin-top: 20vh;
+}
+
+form{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+legend{
+    text-align: center;
+    font-size: 1.5rem;
+    color: #68d66f;
+}
+
+fieldset{
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+    box-shadow: 2px 2px 4px;
+    border-radius: 10px;
+}
+
+input[type="email"]{
+    height: 40px;
+    padding-left: 10px;
+    border: 1px solid;
+    outline: none;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+#password{
+    width: 30vw;
+    height: 40px;
+    padding-left: 10px;
+    border: 1px solid;
+    outline: none;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.eye-icon-container{
+    position: relative;
+}
+
+#eye-icon{
+    position: absolute;
+    top: 30%;
+    right: 3%;
+    cursor: pointer;
+}
+
+.btn-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-container input{
+    width: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .5s;
+    box-shadow: 2px 2px 4px;
+}
+
+.btn-container input:hover{
+    background: #68d66f;
+    color: #fff;
+    border-color: #fff;
+    font-weight: 500;
+}
+
+.btn-container input:active{
+    transform: scale(.7);
+}

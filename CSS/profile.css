@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background: #f5f5f5;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 2px 2px 4px;
+    padding: 0 15px;
+}
+
+header img{
+    cursor: pointer;
+}
+
+header i{
+    font-size: 2rem;
+    cursor: pointer;
+}

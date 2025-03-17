@@ -78,7 +78,12 @@ document.getElementById('form').addEventListener('submit', async(e)=>{
 
 
 const menuIcon = document.getElementById('menu-icon')
-const navUl = document.querySelector('section nav ul')
+const navUl = document.querySelector('section ul')
+
+
+menuIcon.addEventListener('click', ()=>{
+
+})
 
 menuIcon.addEventListener('click', ()=>{
     menuIcon.classList.toggle('fa-xmark')
