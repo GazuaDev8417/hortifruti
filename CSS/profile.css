@@ -87,7 +87,7 @@ ul li a:hover::after{
 }
 
 .user-data{
-    margin: 20vh 0 0 20px;
+    margin: 20vh 20px;
     line-height: 30px;
     border-bottom: 1px solid;
     padding: 10px 30px;
@@ -195,6 +195,36 @@ ul li a:hover::after{
     transform: scale(.9);
 }
 
+.order-text{
+    margin: 15vh 0;
+}
+
+.order-text h1{
+    font-size: 40px;
+    text-align: center;
+    margin-top: 20vh;
+}
+
+.order-text span{
+    color: #68d66f;
+    font-size: 40px;
+}
+
+.order_box{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.order_card{
+    margin: 20px;
+    box-shadow: 2px 2px 4px;
+    border-radius: 10px;
+    padding: 0 10px;
+    line-height: 30px;
+}
+
 /* ===================== MEDIA QUERIES =============================== */
 
 @media(max-width: 1150px){
@@ -224,6 +254,10 @@ ul li a:hover::after{
 }
 
 @media(max-width: 450px){
+    .user-data{
+        margin: 10vh 20px;
+    }
+
     ul{
         top: 8%;
     }

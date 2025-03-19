@@ -128,6 +128,30 @@ const insertIntoCart = (product, price, urlImage)=>{
     .catch(e => alert(e.message))
 }
 
+
+const createRequest = (productName)=>{
+   fetch('http://10.23.1.5:3003/client', {
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        }
+    }).then(async res=>{
+        if(!res.ok){
+            const errorText = await res.text()
+            alert(errorText)
+
+            return Promise.reject()
+        }
+        return res.json()
+    }).then(data=>{
+        client.value = data.name
+        email.value = data.email
+        address.value = data.address
+        phone.value = data.phone
+        product.value = productName
+    }).catch(e => alert(e.message))
+}
+
+
 document.addEventListener('DOMContentLoaded', ()=>{
     fetch('http://10.23.1.5:3003/products').then(res => res.json()).then(data=>{
         av_box.innerHTML = data.map(product =>{
@@ -147,9 +171,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star-half-stroke"></i>
                         </div>
-                        <a class="av_btn" onclick="insertIntoCart('${product.product}', '${product.price}', '${product.urlImage}')" >
-                            Adicionar ao carrinho
-                        </a>
+                        <div class="btn-container">
+                            <a class="av_btn" onclick="insertIntoCart('${product.product}', '${product.price}', '${product.urlImage}')" >
+                                Adicionar ao carrinho
+                            </a>
+                            <a href='#order' class="av_btn" onclick="createRequest('${product.product}')" >
+                                Fazer pedido
+                            </a>
+                        </div>
                     </div>
                 </div>
             `

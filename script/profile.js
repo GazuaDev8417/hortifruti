@@ -39,7 +39,11 @@ const removeFromCart = (elemnt)=>{
             return Promise.reject()
         }
         return res.text()
-    }).then(() => alert(`${item.product} removido do carrinho`))
+    }).then(() =>{
+        alert(`${item.product} removido do carrinho`)
+        
+        elemnt.closest('.av_card').remove()
+    })
     .catch(e => alert(e.message))
 }
 
@@ -70,6 +74,36 @@ document.addEventListener('DOMContentLoaded', ()=>{
                             Remover do carrinho
                         </a>
                     </div>
+                </div>
+            `
+        })
+    }).catch(e => console.log(e.message))
+})
+
+
+document.addEventListener('DOMContentLoaded', ()=>{
+    fetch('http://10.23.1.5:3003/orders', {
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        }
+    }).then(async res=>{
+        if(!res.ok){
+            const errorText = await res.text()
+            alert(errorText)
+
+            return Promise.reject()
+        }
+
+        return res.json()
+    }).then(data=>{
+        console.log(data)
+        document.querySelector('.order_box').innerHTML = data.map(item=>{
+            return`
+                <div class="order_card">
+                    <b>Pedido</b>: ${item.product}<br>
+                    <b>Endereço</b>: ${item.address}<br>
+                    <b>Cliente</b>: ${item.client}<br>
+                    <b>Telefone</b>: ${item.phone}<br>
                 </div>
             `
         })

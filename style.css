@@ -261,14 +261,16 @@ section p{
 .av_box{
     width: 95%;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
 }
 
 .av_card{
     width: 322px;
-    height: 500px;
+    height: 600px;
     padding: 10px;
     margin-bottom: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, .3);
@@ -323,6 +325,12 @@ section p{
     color: #68d66f;
     text-align: center;
     margin: 10px 0 10px 0;
+}
+
+.av_card .btn-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .av_btn{
@@ -543,7 +551,7 @@ section p{
 
     .av_card{
         width: 500px;
-        height: 700px;
+        height: 800px;
     }
 
     .av_image{
