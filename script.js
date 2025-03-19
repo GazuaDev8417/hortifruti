@@ -59,14 +59,21 @@ document.getElementById('form').addEventListener('submit', async(e)=>{
     const response = await fetch('http://10.23.1.5:3003/order', {
         method:'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': localStorage.getItem('token')
         },
         body: JSON.stringify(formData)
     })
 
     if(!response.ok){
-        alert('Erro ao enviar pedido')
-        
+        const errorText = await response.text()
+        if(errorText === 'jwt must be provided'){
+            alert('É preciso estar logado na sua conta')
+            window.location.href = 'pages/login.html'
+        }else{
+            alert(errorText)
+        }
+
         return
     }
 
@@ -88,4 +95,34 @@ menuIcon.addEventListener('click', ()=>{
 menuIcon.addEventListener('click', ()=>{
     menuIcon.classList.toggle('fa-xmark')
     navUl.classList.toggle('active')
+})
+
+
+const av_box = document.querySelector('.av_box')
+
+document.addEventListener('DOMContentLoaded', ()=>{
+    fetch('http://10.23.1.5:3003/products').then(res => res.json()).then(data=>{
+        av_box.innerHTML = data.map(product =>{
+            return`
+                <div class="av_card">
+                    <div class="av_image">
+                        <img src=${product.urlImage} alt="imaga_of_available">
+                    </div>
+                    <div class="av_info">
+                        <h2>${product.product}</h2>
+                        <p>${product.description}</p>
+                        <h3>R$ ${Number(product.price).toFixed(2)} <span>Kg</span></h3>
+                        <div class="av_icon">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                        <a href="#order" class="av_btn">Adicionar ao carrinho</a>
+                    </div>
+                </div>
+            `
+        }).join('')
+    }).catch(e => alert(e.message))
 })

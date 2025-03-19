@@ -39,9 +39,12 @@ const email = document.getElementById('email')
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(formData)
-            }).then(res =>{
+            }).then(async res =>{
                 if(!res.ok){
-                    return res.text().then(text => alert(text))
+                    const errorText = await res.text()
+                    alert(errorText)
+
+                    return Promise.reject()
                 }
 
                 return res.text()

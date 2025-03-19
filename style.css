@@ -122,7 +122,6 @@ section .main{
 
 section .main .men_text h1{
     font-size: 40px;
-    /* margin-top: -40vh; */
 }
 
 .men_text h1 span{
@@ -455,6 +454,18 @@ section p{
 }
 
 @media(max-width: 870px){
+    #menu-icon{
+        font-size: 2rem;
+    }
+
+    section ul{
+        top: 12%;
+    }
+
+    section ul.active{
+        right: 1.8%;
+    }
+
     .home-container{
         display: flex;
         flex-direction: column;
@@ -505,40 +516,17 @@ section p{
 
 @media(max-width: 700px){
     #menu-icon{
-        display: block;
-    }
-
-    #login-icon{
-        display: block;
-    }
-
-    .icon{
-        display: none;
+        font-size: 3rem;
     }
 
     section ul{
-        position: absolute;
-        width: 100%;
-        padding: 10px 0 10px 40px;
-        top: 100%;
-        right: -100%;
-        transition: .5s;
-        transition-delay: .5s;
-        background: #fff;
-        line-height: 5rem;
-    }
-
-    section ul li{
-        display: block;
+        top: 7%;
+        line-height: 40px;
+        right: -15%;
     }
 
     section ul li a{
-        font-size: 2.5rem;
-        font-weight: 300;
-    }
-    
-    section ul.active{
-        right: 0;
+        font-size: 28px;
     }
 
     .av_box{

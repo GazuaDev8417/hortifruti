@@ -12,9 +12,22 @@
     <header>
         <img src="../images/logo.jpg" alt="Logo Hortifrúti" onclick="window.location.href = '../index.html'">
         <h1>Perfil do Usuário</h1>
-        <i class="fa-solid fa-arrow-right-from-bracket" id="logout-icon"></i>
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
     </header>
-
+    <ul>
+        <li><a href="#profile">Perfil</a></li>
+        <li><a href="#cart">Carrinho</a></li>
+        <li><a href="#order">Pedidos</a></li>
+        <li><a id="logout-icon">Logout</a></li>
+    </ul>
+    <section class="profile" id="profile">
+        <div class="user-data"></div>
+    </section>
+    <section class="cart" id="cart">
+        <div class="cart-text">
+            <h1>Carri<span>nho</span></h1>
+        </div>
+    </section>
     <script src="../script/profile.js"></script>
 </body>
 </html>

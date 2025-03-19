@@ -17,7 +17,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 2px 2px 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
     padding: 0 15px;
 }
 
@@ -28,4 +28,109 @@ header img{
 header i{
     font-size: 2rem;
     cursor: pointer;
+}
+
+#menu-icon{
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+ul{
+    list-style: none;
+    position: fixed;
+    top: 20%;
+    border-radius: 10px;
+    right: -10%;
+    background: #fff;
+    padding: 15px 5px;
+    box-shadow: 2px 2px 4px;
+    transition: .5s;
+    line-height: 30px;
+}
+
+ul.active{
+    right: 1.4%;
+}
+
+ul li{
+    margin: 0 15px;
+}
+
+ul li a{
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 17px;
+    transition: .1s;
+    cursor: pointer;
+}
+
+ul li a::after{
+    content: '';
+    width: 0;
+    height: 2px;
+    background: #68d66f;
+    display: block;
+    transition: .2s;
+}
+
+ul li a:hover{
+    color: #68d66f;
+}
+
+ul li a:hover::after{
+    width: 100%;
+}
+
+.user-data{
+    margin: 10vh 0 0 20px;
+    line-height: 30px;
+    border-bottom: 1px solid;
+    padding: 10px 30px;
+    border-radius: 10px;
+}
+
+.cart-text h1{
+    font-size: 40px;
+    text-align: center;
+    margin-top: 20vh;
+}
+
+.cart-text span{
+    color: #68d66f;
+    font-size: 40px;
+}
+
+/* ===================== MEDIA QUERIES =============================== */
+
+@media(max-width: 1150px){
+    ul{
+        right: -15%;
+    }
+}
+
+@media(max-width: 750px){
+    ul{
+        right: -40%;
+    }
+}
+
+@media(max-width: 600px){
+    header img{
+        width: 10%;
+    }
+
+    header h1, header i{
+        font-size: 1.2rem;
+    }
+
+    ul{
+        top: 15%;
+    }
+}
+
+@media(max-width: 450px){
+    ul{
+        top: 8%;
+    }
 }
