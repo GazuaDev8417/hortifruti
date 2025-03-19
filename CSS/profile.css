@@ -92,6 +92,7 @@ ul li a:hover::after{
     border-bottom: 1px solid;
     padding: 10px 30px;
     border-radius: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
 }
 
 .cart-text h1{
