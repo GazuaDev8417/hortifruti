@@ -315,6 +315,10 @@ section p{
     font-family: 'Cormorant Garamond', serif;
 }
 
+.av_info a{
+    cursor: pointer;
+}
+
 .av_icon{
     color: #68d66f;
     text-align: center;
@@ -335,6 +339,10 @@ section p{
 
 .av_btn:hover{
     background: #000;
+}
+
+.av_btn:active{
+    transform: scale(.9);
 }
 
 
@@ -633,37 +641,6 @@ section p{
     .available h1{
         font-size: 5rem;
     }
-
-    /* .av_card{
-        width: 500px;
-        height: 700px;
-    }
-
-    .av_image{
-        width: 470px;
-        height: 470px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .av_image img{
-        width: 400px;
-        box-shadow: 0 0 10px;
-        border-radius: 10px;
-    }
-
-    .av_info h2{
-        font-size: 2rem;
-    }
-
-    .av_info p{
-        font-size: 20px;
-    }
-
-    .av_btn{
-        font-size: 25px;
-    } */
 
     .order{
         width: 300%;

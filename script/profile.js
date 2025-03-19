@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
             'Authorization': token
         }
     }).then(res => res.json()).then(data=>{
-        console.log(data)
         user.innerHTML = `
             ${data.name}<br>
             ${data.email}<br>
@@ -22,6 +21,41 @@ document.addEventListener('DOMContentLoaded', ()=>{
         `
     }).catch(e => alert(e.message))
 })
+
+
+document.addEventListener('DOMContentLoaded', ()=>{
+    fetch('http://10.23.1.5:3003/cartItems', {
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        }
+    }).then(res => res.json()).then(data=>{
+        console.log(data)
+        document.querySelector('.cart_box').innerHTML = data.map(item=>{
+            return`
+                <div class="av_card">
+                    <div class="av_image">
+                        <img src=${item.urlImage} alt="imaga_of_available">
+                    </div>
+                    <div class="av_info">
+                        <h2>${item.product}</h2>
+                        <h3>R$ ${Number(item.price).toFixed(2)} <span>Kg</span></h3>
+                        <div class="av_icon">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                        <a class="av_btn">
+                            Remover do carrinho
+                        </a>
+                    </div>
+                </div>
+            `
+        })
+    }).catch(e => alert(e.message))
+})
+
 
 menuIcon.addEventListener('click', ()=>{
     menuIcon.classList.toggle('fa-xmark')

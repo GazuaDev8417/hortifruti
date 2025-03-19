@@ -100,6 +100,34 @@ menuIcon.addEventListener('click', ()=>{
 
 const av_box = document.querySelector('.av_box')
 
+
+const insertIntoCart = (product, price, urlImage)=>{
+    const body = {
+        product,
+        price,
+        urlImage
+    }
+
+    fetch('http://10.23.1.5:3003/insert_in_cart', {
+        method:'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': localStorage.getItem('token')
+        },
+        body: JSON.stringify(body)
+    }).then(async res =>{
+        if(!res.ok){
+            const errorText = await res.text()
+            alert(errorText)
+
+            return Promise.reject()
+        }
+        return res.text()
+
+    }).then(data => alert(data))
+    .catch(e => alert(e.message))
+}
+
 document.addEventListener('DOMContentLoaded', ()=>{
     fetch('http://10.23.1.5:3003/products').then(res => res.json()).then(data=>{
         av_box.innerHTML = data.map(product =>{
@@ -119,7 +147,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star-half-stroke"></i>
                         </div>
-                        <a href="#order" class="av_btn">Adicionar ao carrinho</a>
+                        <a class="av_btn" onclick="insertIntoCart('${product.product}', '${product.price}', '${product.urlImage}')" >
+                            Adicionar ao carrinho
+                        </a>
                     </div>
                 </div>
             `
