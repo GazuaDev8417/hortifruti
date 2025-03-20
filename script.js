@@ -30,6 +30,7 @@ const phone = document.getElementById('phone')
 const product = document.getElementById('product')
 const address = document.getElementById('address')
 const products = ['Morango', 'Couve-flor', 'Alface', 'Pimentão', 'Repolho', 'Brocoli', 'Tomate', 'Melancia']
+const BASE_URL = 'https://hortifruti-api.vercel.app'
 
 
 document.getElementById('form').addEventListener('submit', async(e)=>{
@@ -56,7 +57,7 @@ document.getElementById('form').addEventListener('submit', async(e)=>{
         quantity: qnt.value
     }
 
-    const response = await fetch('http://10.23.1.5:3003/order', {
+    const response = await fetch(`${BASE_URL}/order`, {
         method:'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -108,7 +109,7 @@ const insertIntoCart = (product, price, urlImage)=>{
         urlImage
     }
 
-    fetch('http://10.23.1.5:3003/insert_in_cart', {
+    fetch(`${BASE_URL}/insert_in_cart`, {
         method:'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -130,7 +131,7 @@ const insertIntoCart = (product, price, urlImage)=>{
 
 
 const createRequest = (productName)=>{
-   fetch('http://10.23.1.5:3003/client', {
+   fetch(`${BASE_URL}/client`, {
         headers: {
             'Authorization': localStorage.getItem('token')
         }
@@ -153,7 +154,7 @@ const createRequest = (productName)=>{
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
-    fetch('http://10.23.1.5:3003/products').then(res => res.json()).then(data=>{
+    fetch(`${BASE_URL}/products`).then(res => res.json()).then(data=>{
         av_box.innerHTML = data.map(product =>{
             return`
                 <div class="av_card">

@@ -2,13 +2,15 @@ const logout = document.getElementById('logout-icon')
 const menuIcon = document.getElementById('menu-icon')
 const navUl = document.querySelector('ul')
 const user = document.querySelector('.user-data')
+const BASE_URL = 'https://hortifruti-api.vercel.app'
+
 
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
     const token = localStorage.getItem('token')
 
-    fetch('http://10.23.1.5:3003/client', {
+    fetch(`${BASE_URL}/client`, {
         headers: {
             'Authorization': token
         }
@@ -26,7 +28,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 const removeFromCart = (elemnt)=>{
     const item = JSON.parse(elemnt.getAttribute('data-item'))
     
-    fetch(`http://10.23.1.5:3003/cartItem/${item.id}`, {
+    fetch(`${BASE_URL}/cartItem/${item.id}`, {
         method:'DELETE',
         headers: {
             'Authorization': localStorage.getItem('token')
@@ -49,7 +51,7 @@ const removeFromCart = (elemnt)=>{
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
-    fetch('http://10.23.1.5:3003/cartItems', {
+    fetch(`${BASE_URL}/cartItems`, {
         headers: {
             'Authorization': localStorage.getItem('token')
         }
@@ -77,26 +79,25 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 </div>
             `
         })
-    }).catch(e => console.log(e.message))
+    }).catch(e => console.error(e.message))
 })
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
-    fetch('http://10.23.1.5:3003/orders', {
+    fetch(`${BASE_URL}/orders`, {
         headers: {
             'Authorization': localStorage.getItem('token')
         }
     }).then(async res=>{
         if(!res.ok){
             const errorText = await res.text()
-            alert(errorText)
+            console.error(errorText)
 
             return Promise.reject()
         }
 
         return res.json()
     }).then(data=>{
-        console.log(data)
         document.querySelector('.order_box').innerHTML = data.map(item=>{
             return`
                 <div class="order_card">
