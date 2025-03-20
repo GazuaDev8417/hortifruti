@@ -196,7 +196,7 @@ ul li a:hover::after{
 }
 
 .order-text{
-    margin: 15vh 0;
+    margin: 15vh 0 5vh 0;
 }
 
 .order-text h1{
