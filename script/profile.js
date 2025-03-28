@@ -98,10 +98,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
         return res.json()
     }).then(data=>{
+        console.log(data)
         document.querySelector('.order_box').innerHTML = data.map(item=>{
             return`
                 <div class="order_card">
                     <b>Pedido</b>: ${item.product}<br>
+                    <b>Quantidade</b>: ${item.quantity}<br>
                     <b>Endereço</b>: ${item.address}<br>
                     <b>Cliente</b>: ${item.client}<br>
                     <b>Telefone</b>: ${item.phone}<br>
