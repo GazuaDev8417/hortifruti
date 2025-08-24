@@ -50,52 +50,6 @@ section nav .logo img{
     color: green;
 }
 
-/* section ul{
-    list-style: none;
-    position: fixed;
-    top: 20%;
-    border-radius: 10px;
-    right: -15%;
-    background: #fff;
-    padding: 15px 20px;
-    box-shadow: 2px 2px 4px;
-    transition: .5s;
-    line-height: 30px;
-}
-
-section ul.active{
-    right: 1.4%;
-}
-
-section ul li{
-    margin: 0 15px;
-}
-
-section ul li a{
-    color: #000;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 17px;
-    transition: .1s;
-}
-
-section ul li a::after{
-    content: '';
-    width: 0;
-    height: 2px;
-    background: #68d66f;
-    display: block;
-    transition: .2s;
-}
-
-section ul li a:hover{
-    color: #68d66f;
-}
-
-section ul li a:hover::after{
-    width: 100%;
-} */
-
 section nav .icon{
     border: 1px solid;
     padding: 5px;
@@ -647,6 +601,7 @@ section p{
     .available{
         width: 300%;
         margin-left: 40px;
+        margin-top: 30%;
     }
 
     .available h1{
