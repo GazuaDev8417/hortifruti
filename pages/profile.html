@@ -10,24 +10,22 @@
 </head>
 <body>
     <header>
-        <img src="../images/logo.jpg" alt="Logo Hortifrúti" onclick="window.location.href = '../index.html'">
+        <img
+            src="../images/logo.jpg" 
+            alt="Logo Hortifrúti" 
+            title="Clique para voltar à página inicial"
+            onclick="window.location.href = '../index.html'">
         <h1>Perfil do Usuário</h1>
-        <i class="fa-solid fa-bars" id="menu-icon"></i>
+        <i class="fa-solid fa-arrow-right-from-bracket" id="logout-icon"></i>
     </header>
-    <ul>
-        <li><a href="#profile">Perfil</a></li>
-        <li><a href="#cart">Carrinho</a></li>
-        <li><a href="#order">Pedidos</a></li>
-        <li><a id="logout-icon">Logout</a></li>
-    </ul>
 
-    <section class="profile" id="profile">
-        <div class="user-data"></div>
+    <section class="profile">
+        <div class="user-data" id="profile"></div>
     </section>
 
-    <section class="cart" id="cart">
+    <section class="cart">
         <div class="cart-text">
-            <h1>Carri<span>nho</span></h1>
+            <h1 id="cart">Carri<span>nho</span></h1>
         </div>
         <div class="cart_box"></div>
     </section>

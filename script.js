@@ -30,7 +30,10 @@ const phone = document.getElementById('phone')
 const product = document.getElementById('product')
 const address = document.getElementById('address')
 const products = ['Morango', 'Couve-flor', 'Alface', 'Pimentão', 'Repolho', 'Brocoli', 'Tomate', 'Melancia']
+const productPrice = localStorage.getItem('price')
 const BASE_URL = 'https://hortifruti-api.vercel.app'
+//const BASE_URL = 'http://localhost:3003'
+
 
 
 document.getElementById('form').addEventListener('submit', async(e)=>{
@@ -54,6 +57,7 @@ document.getElementById('form').addEventListener('submit', async(e)=>{
         phone: phone.value,
         address: address.value,
         product: product.value,
+        price: productPrice && productPrice,
         quantity: qnt.value
     }
 
@@ -81,22 +85,19 @@ document.getElementById('form').addEventListener('submit', async(e)=>{
     const result = await response.text()
 
     alert(result)
-
 })
 
 
-const menuIcon = document.getElementById('menu-icon')
+/* const menuIcon = document.getElementById('menu-icon')
 const navUl = document.querySelector('section ul')
 
 
-menuIcon.addEventListener('click', ()=>{
 
-})
 
 menuIcon.addEventListener('click', ()=>{
     menuIcon.classList.toggle('fa-xmark')
     navUl.classList.toggle('active')
-})
+}) */
 
 
 const av_box = document.querySelector('.av_box')
@@ -130,32 +131,34 @@ const insertIntoCart = (product, price, urlImage)=>{
 }
 
 
-const createRequest = (productName)=>{
-   fetch(`${BASE_URL}/client`, {
-        headers: {
-            'Authorization': localStorage.getItem('token')
-        }
-    }).then(async res=>{
-        if(!res.ok){
-            const errorText = await res.text()
-            alert(errorText)
+const createRequest = (productName, productPrice)=>{
+    localStorage.setItem('price', productPrice)
+    fetch(`${BASE_URL}/client`, {
+            headers: {
+                'Authorization': localStorage.getItem('token')
+            }
+        }).then(async res=>{
+            if(!res.ok){
+                const errorText = await res.text()
+                alert(errorText)
 
-            return Promise.reject()
-        }
-        return res.json()
-    }).then(data=>{
-        client.value = data.name
-        email.value = data.email
-        address.value = data.address
-        phone.value = data.phone
-        product.value = productName
-    }).catch(e => alert(e.message))
+                return Promise.reject()
+            }
+            return res.json()
+        }).then(data=>{
+            client.value = data.name
+            email.value = data.email
+            address.value = data.address
+            phone.value = data.phone
+            product.value = productName
+        }).catch(e => alert(e.message))
 }
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
     fetch(`${BASE_URL}/products`).then(res => res.json()).then(data=>{
         av_box.innerHTML = data.map(product =>{
+            localStorage.setItem('price', product.price)
             return`
                 <div class="av_card">
                     <div class="av_image">
@@ -176,7 +179,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                             <a class="av_btn" onclick="insertIntoCart('${product.product}', '${product.price}', '${product.urlImage}')" >
                                 Adicionar ao carrinho
                             </a>
-                            <a href='#order' class="av_btn" onclick="createRequest('${product.product}')" >
+                            <a href='#order' class="av_btn" onclick="createRequest('${product.product}', ${product.price})" >
                                 Fazer pedido
                             </a>
                         </div>

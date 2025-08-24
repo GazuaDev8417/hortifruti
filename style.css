@@ -35,18 +35,22 @@ section nav{
 }
 
 section nav .logo img{
-    width: 100px;
     cursor: pointer;
     margin: 5px;
     border-radius: 5px;
 }
 
-#menu-icon{
-    font-size: 1.5rem;
+#profile-icon{
+    font-size: 1.7rem;
     cursor: pointer;
+    transition: .3s ease;
 }
 
-section ul{
+#profile-icon:hover{
+    color: green;
+}
+
+/* section ul{
     list-style: none;
     position: fixed;
     top: 20%;
@@ -90,7 +94,7 @@ section ul li a:hover{
 
 section ul li a:hover::after{
     width: 100%;
-}
+} */
 
 section nav .icon{
     border: 1px solid;
@@ -397,7 +401,7 @@ section p{
     border: 1px solid black;
     margin: 5px 0;
     font-size: 1rem;
-    color: #fff;
+    color: black;
     text-transform: none;
     padding: 5px 10px;
     background: rgb(197, 187, 187);

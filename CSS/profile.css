@@ -34,57 +34,16 @@ header i{
     cursor: pointer;
 }
 
-#menu-icon{
+#logout-icon{
     font-size: 1.5rem;
     cursor: pointer;
+    transition: .3s ease;
 }
 
-ul{
-    list-style: none;
-    position: fixed;
-    top: 20%;
-    border-radius: 10px;
-    right: -10%;
-    background: #fff;
-    padding: 15px 5px;
-    box-shadow: 2px 2px 4px;
-    transition: .5s;
-    line-height: 30px;
+#logout-icon:hover{
+    color: green;
 }
 
-ul.active{
-    right: 1.4%;
-}
-
-ul li{
-    margin: 0 15px;
-}
-
-ul li a{
-    color: #000;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 17px;
-    transition: .1s;
-    cursor: pointer;
-}
-
-ul li a::after{
-    content: '';
-    width: 0;
-    height: 2px;
-    background: #68d66f;
-    display: block;
-    transition: .2s;
-}
-
-ul li a:hover{
-    color: #68d66f;
-}
-
-ul li a:hover::after{
-    width: 100%;
-}
 
 .user-data{
     margin: 20vh 20px;
@@ -221,8 +180,24 @@ ul li a:hover::after{
     margin: 20px;
     box-shadow: 2px 2px 4px;
     border-radius: 10px;
-    padding: 0 10px;
+    padding: 5px 10px;
     line-height: 30px;
+}
+
+.order_card button{
+    background-color: #ff0000;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    width: 100%;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s ease-in;
+}
+
+.order_card button:active{
+    transform: scale(.9);
 }
 
 /* ===================== MEDIA QUERIES =============================== */
