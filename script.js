@@ -32,12 +32,22 @@ const address = document.getElementById('address')
 const products = ['Morango', 'Couve-flor', 'Alface', 'Pimentão', 'Repolho', 'Brocoli', 'Tomate', 'Melancia']
 const productPrice = localStorage.getItem('price')
 const BASE_URL = 'https://hortifruti-api.vercel.app'
+const token = localStorage.getItem('token')
 //const BASE_URL = 'http://localhost:3003'
 
 
 
 document.getElementById('form').addEventListener('submit', async(e)=>{
     e.preventDefault()
+
+    if(!token){
+        const decide = window.confirm('Necessário efetuar login para fazer pedidos.')
+        if(decide){
+            window.location.href = './pages/login.html'
+        }
+        return
+    }
+
     
     if(isNaN(qnt.value) || isNaN(phone.value)){
         alert(`Apenas números nos campos de telefone ou quantidade`)
@@ -104,6 +114,14 @@ const av_box = document.querySelector('.av_box')
 
 
 const insertIntoCart = (product, price, urlImage)=>{
+    if(!token){
+        const decide = window.confirm('Necessário efetuar login para adicionar ao carrinho.')
+        if(decide){
+            window.location.href = './pages/login.html'
+        }
+        return
+    }
+    
     const body = {
         product,
         price,
@@ -132,10 +150,17 @@ const insertIntoCart = (product, price, urlImage)=>{
 
 
 const createRequest = (productName, productPrice)=>{
+    if(!token){
+        const decide = window.confirm('Necessário efetuar login para fazer pedidos.')
+        if(decide){
+            window.location.href = './pages/login.html'
+        }
+        return
+    }
     localStorage.setItem('price', productPrice)
     fetch(`${BASE_URL}/client`, {
             headers: {
-                'Authorization': localStorage.getItem('token')
+                'Authorization': token
             }
         }).then(async res=>{
             if(!res.ok){
@@ -156,6 +181,8 @@ const createRequest = (productName, productPrice)=>{
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
+    const profileIcon = document.getElementById('profile-icon')
+    if(!token) profileIcon.style.display = 'none'
     fetch(`${BASE_URL}/products`).then(res => res.json()).then(data=>{
         av_box.innerHTML = data.map(product =>{
             localStorage.setItem('price', product.price)
@@ -179,7 +206,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                             <a class="av_btn" onclick="insertIntoCart('${product.product}', '${product.price}', '${product.urlImage}')" >
                                 Adicionar ao carrinho
                             </a>
-                            <a href='#order' class="av_btn" onclick="createRequest('${product.product}', ${product.price})" >
+                            <a class="av_btn" onclick="createRequest('${product.product}', ${product.price})" >
                                 Fazer pedido
                             </a>
                         </div>

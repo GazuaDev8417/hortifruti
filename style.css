@@ -126,7 +126,7 @@ section p{
     margin-left: 20px;
 }
 
-.main_btn{
+/* .main_btn{
     background: #68d66f;
     margin: 20px 0 0 30vw;
     width: 150px;
@@ -153,7 +153,7 @@ section p{
 
 .main_btn:hover i{
     transform: translateX(7px);
-}
+} */
 
 /* =================== ABOUT =================================== */
 
@@ -574,7 +574,7 @@ section p{
         line-height: 40px;
     }
 
-    .main_btn{
+    /* .main_btn{
         margin-right: -180%;
         width: 400px;
         font-size: 2.5rem;
@@ -582,7 +582,7 @@ section p{
 
     .main_btn a{
         text-decoration: none;        
-    }
+    } */
 
     .about h1{
         font-size: 5rem;

@@ -52,7 +52,7 @@ form.addEventListener('submit', (e)=>{
         return res.text()
     }).then(data =>{
         localStorage.setItem('token', data)
-        window.location.href = 'profile.html'
+        window.location.href = '../index.html'
     })
     .catch(e => alert(e.message))
 })

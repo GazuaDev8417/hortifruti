@@ -25,6 +25,10 @@ logout.addEventListener('click', ()=>{
 
 const getProfile = ()=>{
     const token = localStorage.getItem('token')
+    if(!token){
+        window.location.href = '../pages/login.html'
+        return
+    }
 
     fetch(`${BASE_URL}/client`, {
         headers: {
